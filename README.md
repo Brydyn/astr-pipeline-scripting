@@ -1,6 +1,6 @@
 # Astronomical Pipeline Scripting
 
-This repository contains modular Python scripts used for the reduction, analysis, and spectral modelling of X-ray data from *Chandra*, *XMM-Newton*, and *NuSTAR*. These tools were developed to automate large-scale multi-region analysis tasks, including batch spectral extraction, pipeline management, and statistical post-processing.
+This repository contains modular Python scripts used for the reduction, analysis, and spectral modelling of X-ray data from *Chandra*, and *XMM-Newton*. These tools were developed to automate large-scale multi-region analysis tasks, including batch spectral extraction, pipeline management, and statistical post-processing.
 
 While originally developed for astrophysical jet and supernova remnant studies, many of the utilities are suitable for general high-energy astrophysical workflows.
 
