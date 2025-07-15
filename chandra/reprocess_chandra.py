@@ -120,9 +120,6 @@ def main():
     run_cmd(f"flux_obs \"{flux_input}\" merged/ "
             "bands=\"broad,0.5:1.0:0.75,1.0:2.0:1.5,2.0:10.0:6.0\" binsize=1")
 
-    run_cmd("punlearn reproject_obs")
-    run_cmd(f"reproject_obs {','.join(obsids)} reproj/")
-
     # Flux-corrected images
     run_cmd("punlearn flux_obs")
     run_cmd("flux_obs \"reproj/*_reproj_evt.fits\" merged/ "
