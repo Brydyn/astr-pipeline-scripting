@@ -8,14 +8,16 @@ While originally developed for astrophysical jet and supernova remnant studies, 
 
 ### `/chandra/`
 Scripts for processing Chandra data using CIAO:
-- `Chandra_multi-src_specextract.py`: Multi-region spectral extraction with automated grouping and file handling.
-- `Chandra_U2+U30_All_Images.py`: Image production across multiple energy bands.
-- `ftgrouppha_Chandra_multi-src_specextract_output.py`: Batch grouping of extracted spectra with `ftgrouppha`.
+- `reprocess_chandra.py`: Full reduction pipeline with lightcurve filtering, reprojection, and flux image creation.
+- `Chandra_multi-src_specextract+group.py`: Multi-region spectral extraction and grouping using shared background.
+- `Chandra_U2+U30_All_Images.py`: Image smoothing and unsharp masking across multiple energy bands.
 
 ### `/xmm/`
 XMM-specific pipelines:
 - `specextract_v27.py`: Batch spectral extraction for extended and diffuse sources.
 - `specextract_v27_ptsrc.py`: Adapted extraction for point sources.
+- `re-process.py`: Serial reprocessing pipeline including download, flare filtering, and renaming.
+- `re-process-parallel.py`: Parallel version of re-process.py using separate SAS environments.
 
 ### `/xspec/`
 Automated fitting using XSPEC via `pyXspec`:
