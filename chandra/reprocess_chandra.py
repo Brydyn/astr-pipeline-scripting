@@ -37,20 +37,21 @@ def run_cmd(cmd, cwd=None):
 def process_obsid(obsid):
     print(f"\n=== Processing OBSID {obsid} ===")
     repro_dir = Path(f"{obsid}/repro")
+    cwd = Path.cwd()
     os.chdir(repro_dir)
 
     # Set ARDLIB to current observation
-    bpix = list(repro_dir.glob("*_repro_bpix1.fits"))[0].name
+    bpix = list(Path('.').glob("*_repro_bpix1.fits"))[0].name
     run_cmd(f"punlearn ardlib && acis_set_ardlib {bpix}")
 
     # Energy filtering
-    evt2 = list(repro_dir.glob("*_evt2.fits"))[0].name
+    evt2 = list(Path('.').glob("*_evt2.fits"))[0].name
     base = evt2.replace("_evt2.fits", "")
     filtered_evt = f"{base}_0.3-10.fits"
     run_cmd(f"punlearn dmcopy && dmcopy \"{evt2}[energy=300:10000]\" {filtered_evt}")
 
     # Prompt for user-generated region file
-    print(f"\nOpen DS9, load {filtered_evt}, draw full-region circle,")
+    print(f"\nOpen DS9, load {filtered_evt} (bin 4), draw full-region circle,")
     print(f"then save as {obsid}_ltcrv.reg in CIAO (physical) format.")
     input("Press Enter once the region file is saved...")
 
@@ -90,7 +91,7 @@ def process_obsid(obsid):
             print("Invalid input. Skipping GTI filtering.")
             run_cmd(f"dmcopy \"{filtered_evt}\" {evt2}")
 
-    os.chdir("../../")
+    os.chdir(cwd)
 
 def main():
     if len(sys.argv) < 2:
