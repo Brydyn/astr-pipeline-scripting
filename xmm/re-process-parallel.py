@@ -158,7 +158,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     base_dir = Path.cwd()
-    spectra_dir = base_dir / "Spectra"
+    spectra_dir = base_dir.parent / "Spectra"
     spectra_dir.mkdir(exist_ok=True)
 
     obsids = sys.argv[1:]
