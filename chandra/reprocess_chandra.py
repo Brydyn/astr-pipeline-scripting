@@ -41,7 +41,7 @@ def process_obsid(obsid):
     os.chdir(repro_dir)
 
     # Set ARDLIB to current observation
-    bpix = list(Path('.').glob("*_repro_bpix1.fits"))[0].name
+    bpix = str(list(Path('.').glob("*_repro_bpix1.fits"))[0].name)
     run_cmd(f"punlearn ardlib && acis_set_ardlib {bpix}")
 
     # Energy filtering
