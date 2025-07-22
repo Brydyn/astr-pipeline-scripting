@@ -17,9 +17,9 @@ Requirements / Restrictions:
         - Chandra: <obsid>_src<region>_grp3sn.fits (e.g., 1625_src1_grp3sn.fits)
     - Backgrounds must already be accounted for in spectra grouping (no explicit background files used here).
     - Grouping convention: 
-        - MOS1 and MOS2 in XSPEC data group 1
-        - pn in XSPEC data group 2
-        - Chandra in XSPEC data group 3
+        - MOS1 and MOS2 in XSPEC data groups 1 and 2
+        - pn in XSPEC data group 3
+        - Chandra in XSPEC data group 4
 
 Output:
     - Model fit outputs saved in ./Pyxspec_Output/{Instru}/vapec/
